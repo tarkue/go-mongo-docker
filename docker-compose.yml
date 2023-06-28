@@ -1,0 +1,29 @@
+
+version: '3'
+
+services:
+
+  # App Service
+  app:
+    build:
+      context: . 
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080" 
+    networks: 
+      - backend
+
+  # Redis Service   
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=links
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_ROOT_PASSWORD=123
+
+    networks:
+      - backend
+
+networks:
+  backend:    
