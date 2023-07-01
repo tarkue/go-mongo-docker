@@ -1,0 +1,3 @@
+package database
+
+const BytesSymbols = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
