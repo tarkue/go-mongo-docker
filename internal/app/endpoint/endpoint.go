@@ -97,7 +97,7 @@ func (e *Endpoint) GetLink(ctx echo.Context) error {
 			&link,
 		)
 
-		ctx.JSON(http.StatusOK, &link)
+		ctx.JSON(http.StatusOK, &link.Initial)
 		return nil
 	}
 
