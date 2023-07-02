@@ -7,6 +7,7 @@ import (
 	"minly-backend/internal/app/service"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 type App struct {
@@ -31,6 +32,11 @@ func New() (*App, error) {
 	a.e = endpoint.New(a.s, a.db)
 
 	a.echo = echo.New()
+
+	a.echo.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+	}))
 
 	a.echo.GET("/getResult", a.e.GetResult)
 	a.echo.GET("/getLink", a.e.GetLink)
