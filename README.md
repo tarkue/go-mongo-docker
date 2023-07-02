@@ -10,7 +10,7 @@ Echo, mongo-driver
 
 Возвращает изначальную ссылку по идентификатору.
 
-### getResult (initial string)
+### getResult (initial string, only_result bool)
 
 Возвращает результат сокращения ссылки в виде JSON-объекта. 
 
